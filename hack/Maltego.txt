@@ -1,0 +1,65 @@
+Devices                //设备
+infrastructure         //基础设施
+Locations              //位置
+Penetration Testing    //渗透测试
+Personal               //个人
+Social Netword         //社会网络
+
+
+
+Device    设备     //A device such as a phone or camera   设备如手机或相机
+
+AS            //An internet Autonomous System     互联网自治系统
+DNS Name      //Domain Name System server name    域名系统服务器名
+Domain        //An internet domain                Internet域名
+IPv4 Address  //An IP version 4 address           一个IPv4的地址
+MX Record     //A DNS mail exchange record        DNS邮件交换记录
+NS Record     //A DNS name server record          DNS名称服务器记录
+Netblock      //An internet Autonomous System     一个互联网自治系统          NetBlock是一个专门管理电脑分享资源的工具软件，它可以新增、删除、编辑分享的资源，并可以修改安全参数、阻挡网络连接、切断使用者、关闭文件等，还能纪录分享资源...
+URL           //An internet Uniform Resource Locator  一个互联网统一资源定位器
+Website       //An internet website                网址
+
+Location      //A location on Mother Earth         位置
+
+BuiltWith Technology  //A Technology identified by BuiltWith
+
+Alias          //An alias for a person            一个人的别名
+Document       //A document on the internet       在互联网上一个文档
+Email adress   //
+Image          //a visual representation of something  的可视化表示
+Person         //Entity representing a human         实体代表一个人
+Phone Number   //A telephone number           电话号码
+pHRASE  短语   //Any text or part thereof       任何文本或部分
+
+
+Show Big Icons    显示大图标
+Reset Palette     复位调板位置
+Refresh Palette   刷新面板
+Sort by Item Name 按项目名称排序
+Create New Category  创建新类别
+Rename Category      重命名
+Paset Item          
+
+Display name        显示名称
+Short description   简要说明
+Unique type name    独特类型名称
+Data type            数据类型
+String
+Sample value   样本
+
+
+All Transforms        //所有的转换
+DNS from Domain       //域的DNS
+Domain owner detail   //域名所有者细节
+Email addresses from Domain  //域的电子邮件
+Files and Documents from Domain  //域的文件和文档
+Other transforms      //其它转换
+All transforms        //所有转换
+
+Attempt zone transfer
+Find common DNS names  //找到共同DNS名称
+
+From whois info 从域名查询服务信息
+To Entities [Alchemy and OpenCalais] via whois   通过域名查询服务实体
+using Search Engine  使用搜索引擎
+signed

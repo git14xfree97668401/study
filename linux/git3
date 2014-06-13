@@ -1,0 +1,26 @@
+cd Desktop
+mkdir  xxxxx
+git clone xxxxxxxx.git
+git init                      //创建项目仓库
+git add firename              //添加文件到仓库  add . 代表加入该目录全部文件
+git commit -m “commit_info”   //提交文件到仓库 -m 注释
+git puash origin master       //上传文件到远程端
+git branch                    //查看本地分支 -v 查看最近commit提交信息
+git remote                    //查看远程别名 -v查看远程地址 -a查看本地和远程分支
+git push origin 分支          //上传到远程仓库
+git pull                      //同步合并 协同开发 git branch xxxx               //创建分支  -d 删除分支 -b 创建分支并切换过去
+git checkout xxxx             //改变当前分支 对文件则在ADD前撤销修改
+git pull origin 分支          //同步远程本地分支
+git status                    //查看工作状态
+git merge xx xxx              //合并分支 xx分支内容加入xxx
+git diff                      //合并之前可以查看文件 防止合并冲突,查看修改前后
+git tag x ID                  //创建一个叫x的标签 git tag查看标签 后跟标签则打开git log                       //查看修改细节
+git reflog                    //查看commit修改记录
+get reset   --hard head^      //回到上一个节点
+get reset   --har  commit_id  //回到某个节点
+git rm                        //删除文件包括GIT仓库
+git config --global user.name “Your Name”
+git config --global user.email “you@example.com”   //提交介绍用户
+git diff                      //在git add之前使用有效
+git diff --cached             //add之后 commit之前有效
+

