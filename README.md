@@ -1,4 +1,3 @@
 study
 =====
-
-hack study
+学习笔记
